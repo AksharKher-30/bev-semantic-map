@@ -1,0 +1,37 @@
+# Python 3.10 | Apple M3 (MPS backend)
+
+# ----- Core ML -----------------------------------------------
+torch==2.3.0
+torchvision==0.18.0
+torchaudio==2.3.0
+
+# ----- HuggingFace (SegFormer) --------------------------------
+transformers==4.41.0
+timm==0.9.16          # EfficientNet backbone for LSS
+
+# ----- nuScenes data layer ------------------------------------
+# 1.1.11 required matplotlib<3.6  →  1.2.0 flips to matplotlib>=3.6
+nuscenes-devkit==1.2.0
+pyquaternion==0.9.9   # quaternion → rotation matrix
+
+# ----- Vision / geometry --------------------------------------
+opencv-python==4.10.0.84
+Pillow==10.3.0
+einops==0.8.0         # clean tensor reshape in LSS
+
+# ----- Numerics -----------------------------------------------
+# nuscenes-devkit==1.2.0 requires numpy>=1.22.0,<2.0.0
+numpy>=1.26.0,<2.0.0
+scipy==1.13.1
+
+# ----- Training utilities -------------------------------------
+tensorboard==2.17.0
+tqdm==4.66.4
+
+# ----- Serialisation / config ---------------------------------
+PyYAML==6.0.1
+
+# ----- Dev / notebook -----------------------------------------
+ipykernel==6.29.4
+matplotlib==3.9.0
+pytest>=7.4.0

@@ -1,0 +1,34 @@
+# BEV Semantic Map - .gitignore
+
+data/nuscenes/
+
+# Model checkpoints (tracked via README, not git)
+checkpoints/*.pth
+checkpoints/*.pt
+
+# Training logs
+runs/
+
+# Outputs (videos, CSVs regenerated via scripts)
+outputs/videos/
+outputs/results/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# MacOS
+.DS_Store
+
+# Env
+.env
+*.envdata/maps/
+*.ipynb_checkpoints

@@ -1,0 +1,15 @@
+# ============================================================
+# BEV Semantic Map - environment.yml
+# Usage:
+#   conda env create -f environment.yml
+#   conda activate bev
+# ============================================================
+name: bev
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10.14
+  - pip
+  - pip:
+      - -r requirements.txt
