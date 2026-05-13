@@ -40,7 +40,7 @@ BEV = {
     "size"          : 200,      # pixels (200×200 grid)
     "resolution"    : 0.5,      # metres per pixel  →  100m × 100m coverage
     "d_min"         : 1.0,      # nearest depth bin (metres)  - LSS
-    "d_max"         : 60.0,     # furthest depth bin (metres) - LSS
+    "d_max"         : 45.0,     # furthest depth bin (metres) - LSS
     "d_bins"        : 41,       # number of discrete depth bins - LSS
     "ego_x_offset"  : 0,        # lateral ego shift from grid centre (px)
     "ego_y_offset"  : 0,        # longitudinal ego shift (px)

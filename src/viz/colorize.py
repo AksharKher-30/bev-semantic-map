@@ -54,3 +54,24 @@ def overlay_seg(image_rgb, mask, alpha=0.45):
                              (image_rgb.shape[1], image_rgb.shape[0]),
                              interpolation=cv2.INTER_NEAREST)
     return (image_rgb * (1 - alpha) + seg_rgb * alpha).astype(np.uint8)
+
+
+def bev_logits_to_visual(logits_np, thresholds=None):
+    """
+    Convert (C, H, W) logits to (H, W) label map for visualization.
+    Uses per-class thresholds so rare classes show up better visually.
+    thresholds: [road_thr, vehicle_thr, ped_thr]
+    """
+    import torch
+    if thresholds is None:
+        thresholds = [0.45, 0.20, 0.15]   # lower for rare classes
+
+    logits_t = torch.from_numpy(logits_np)
+    probs    = logits_t.sigmoid().numpy()
+
+    label = np.zeros((probs.shape[1], probs.shape[2]), dtype=np.uint8)
+    # apply in reverse priority so road doesn't overwrite vehicles
+    label[probs[0] > thresholds[0]] = 0   # road
+    label[probs[1] > thresholds[1]] = 1   # vehicle
+    label[probs[2] > thresholds[2]] = 2   # pedestrian
+    return label
